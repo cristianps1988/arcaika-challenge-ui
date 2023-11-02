@@ -6,12 +6,12 @@ export const uiSlice = createSlice({
         isVideoModalOpen: false,
     },
     reducers: {
-        onOpenDateModal: (state) => {
+        onOpenVideoModal: (state) => {
             state.isVideoModalOpen = true;
         },
-        onCloseDateModal: (state) => {
+        onCloseVideoModal: (state) => {
             state.isVideoModalOpen = false;
         }
     }
 });
-export const { onOpenDateModal, onCloseDateModal } = uiSlice.actions;
+export const { onOpenVideoModal, onCloseVideoModal } = uiSlice.actions;

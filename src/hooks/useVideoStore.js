@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { onLoadVideos } from "../store"
+import { onLoadVideos, onSetActiveVideo } from "../store"
 import arcaikaApi from "../api/arcaikaApi"
 
 
@@ -17,36 +17,9 @@ export const useVideoStore = () => {
         }
     }
 
-    // const setActiveEvent = (calendarEvent) => {
-    //     dispatch(onSetActiveEvent(calendarEvent))
-    // }
-
-    // const startSavingEvent = async (calendarEvent) => {
-    //     try {
-    //         if (calendarEvent.id) {
-    //             //actualizar
-    //             await calendarApi.put(`/events/${calendarEvent.id}`, calendarEvent)
-    //             dispatch(onUpdateEvent({ ...calendarEvent }))
-    //             return
-    //         }
-    //         //crear
-    //         const { data } = await calendarApi.post('/events', calendarEvent)
-    //         dispatch(onAddNewEvent({ ...calendarEvent, id: data.event.id, user }))
-    //     } catch (error) {
-    //         Swal.fire('Ups... something went wrong', error.response.data?.msg, 'error')
-    //     }
-    // }
-
-    // const startDeletingEvent = async () => {
-
-    //     try {
-    //         await calendarApi.delete(`/events/${activeEvent.id}`)
-    //         dispatch(onDeleteEvent())
-    //     } catch (error) {
-    //         console.log(error)
-    //         Swal.fire('Ups... something went wrong', error.response.data?.msg, 'error')
-    //     }
-    // }
+    const setActiveVideo = (videoId) => {
+        dispatch(onSetActiveVideo(videoId))
+    }
 
     return {
         // properties
@@ -54,9 +27,7 @@ export const useVideoStore = () => {
         activeVideo,
 
         //metodos
-        // setActiveEvent,
-        // startSavingEvent,
-        // startDeletingEvent,
         startLoadingVideos,
+        setActiveVideo
     }
 }

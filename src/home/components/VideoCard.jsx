@@ -1,11 +1,19 @@
 import { FaHeart, FaComment, FaShare, FaTiktok } from "react-icons/fa";
 import { numRounder } from '../../helpers'
+import { useUiStore, useVideoStore } from "../../hooks";
 
-
-export const VideoCard = ({ author, title, video, videoStats }) => {
+export const VideoCard = ({ author, title, video, videoStats, videoId }) => {
     const { likes, comments, shares } = videoStats;
+    const { setActiveVideo } = useVideoStore()
+    const { openVideoModal } = useUiStore()
+
+    const onShowVideo = () => {
+        setActiveVideo(videoId)
+        openVideoModal()
+    }
+
     return (
-        <div className=" bg-white h-full rounded-lg sm:w-[44%] xl:w-[23%] m-3 hover:cursor-pointer">
+        <div className=" bg-white h-full rounded-lg sm:w-[44%] xl:w-[23%] m-3 hover:cursor-pointer" onClick={onShowVideo}>
             <div className="p-4">
                 <h2 className="font-bold mb-3 align-middle"><FaTiktok className="inline text-2xl" /> @{author.uniqueId}</h2>
                 <p className="text-sm line-clamp-2	">{title}</p>

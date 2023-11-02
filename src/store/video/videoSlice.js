@@ -14,11 +14,9 @@ export const videoSlice = createSlice({
             // todo: agregar verificación para adicionar videos nuevos al state cuando se ingrese a la db uno nuevo
         },
 
-
-
-        // onSetActiveEvent: (state, { payload }) => {
-        //     state.activeEvent = payload;
-        // },
+        onSetActiveVideo: (state, { payload }) => {
+            state.activeVideo = state.videos.filter(video => video.videoId == payload)[0]
+        },
         // onAddNewEvent: (state, { payload }) => {
         //     state.events.push(payload);
         //     state.activeEvent = null;
@@ -37,12 +35,6 @@ export const videoSlice = createSlice({
         //         state.activeEvent = null;
         //     }
         // },
-
-        // onLogoutCalendar: (state) => {
-        //     state.isLoadingEvents = true,
-        //         state.events = [],
-        //         state.activeEvent = null
-        // }
     }
 });
-export const { onLoadVideos } = videoSlice.actions;
+export const { onLoadVideos, onSetActiveVideo } = videoSlice.actions;

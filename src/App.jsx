@@ -1,11 +1,12 @@
-
+import { BrowserRouter } from "react-router-dom"
+import { AppRouter } from "./router/AppRouter"
 
 function App() {
 
   return (
-    <>
-      <p className='text-4xl text-cyan-600'>Hello Vite + React!</p>
-    </>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   )
 }
 
